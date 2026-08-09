@@ -366,37 +366,58 @@ body{
 /* ================= FOOTER ================= */
 
 .footer{
-    padding:16px 0;
+    padding:30px 0;
+
+    background:#FFF8F0;
+
+    color:var(--coffee-dark);
+
+    border-top:2px solid #E8D6C5;
 }
 
 .footer-content{
     display:flex;
-    flex-direction:row;
+
     align-items:center;
+
     justify-content:space-between;
-    gap:10px;
+
+    gap:20px;
 }
 
 .footer-brand{
     display:flex;
+
     align-items:center;
-    gap:7px;
+
+    gap:14px;
+
+    font-weight:700;
+
+    color:var(--coffee-dark);
 }
 
 .footer-brand img{
-    width:32px;
-    height:32px;
+    width:55px;
+    height:55px;
+
+    object-fit:contain;
 }
 
 .footer-brand span{
-    font-size:10px;
-    white-space:nowrap;
+    font-size:16px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
 }
 
 .footer p{
     margin:0;
-    font-size:9px;
-    white-space:nowrap;
+
+    color:#8B7568;
+
+    font-size:13px;
 }
 /* ================= RESPONSIVE ================= */
 
