@@ -18,32 +18,27 @@
 
     <!-- ================= NAVBAR ================= -->
     <nav class="navbar">
-
         <div class="container navbar-content">
-
             <a href="#" class="brand">
-
-                <img
-                    src="/src/assets/images/logo-volt3ra-coffee.png"
-                    alt="VOLT3RA COFFEE"
-                    class="brand-logo"
-                >
-
+                <img src="/src/assets/images/logo-volt3ra-coffee.png" alt="VOLT3RA COFFEE" class="brand-logo">
                 <span>VOLT3RA COFFEE</span>
-
             </a>
 
-            <div class="nav-links">
+            <!-- Tombol Garis Tiga (Hamburger Menu) khusus HP -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#menu">Menu</a>
                 <a href="#about">Tentang</a>
                 <a href="#contact">Kontak</a>
-
+                <a href="https://pre-order-volt3ra.vercel.app" target="_blank" class="btn-preorder-link">Pre-Order</a>
             </div>
-
         </div>
-
     </nav>
 
 
@@ -66,10 +61,17 @@
                 dan siap menemani aktivitasmu sepanjang hari.
             </p>
 
-            <a href="#menu" class="hero-button">
-                Lihat Menu
-                <span>↓</span>
-            </a>
+            <!-- Bungkus tombol aksi utama -->
+            <div class="hero-actions">
+                <a href="#menu" class="hero-button">
+                    Lihat Menu
+                    <span>↓</span>
+                </a>
+                
+                <a href="https://pre-order-volt3ra.vercel.app" target="_blank" class="hero-button-preorder">
+                    Pre-Order Sekarang
+                </a>
+            </div>
 
         </div>
 
@@ -328,7 +330,7 @@
             <div class="contact-grid">
 
                 <!-- Lokasi -->
-                <a href="https://maps.app.goo.gl/bFoTqHmMXNnvXkFR6?g_st=awb"
+                <a href="https://maps.app.goo.gl/duMqDVUqvHANEo8T7"
                    class="contact-card">
 
                     <i class="bi bi-geo-alt-fill"></i>

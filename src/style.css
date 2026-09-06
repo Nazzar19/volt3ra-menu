@@ -587,3 +587,668 @@ body{
     }
 
 }
+/* Default: Sembunyikan tombol hamburger di Laptop */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #F9F6F0;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* Pengaturan khusus layar HP (Mobile View) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Munculkan tombol garis tiga di HP */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #1a120b; /* Warna latar belakang menu mobile */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        display: none; /* Sembunyikan menu secara default sebelum diklik */
+    }
+
+    /* Kelas aktif saat hamburger diklik */
+    .nav-links.active {
+        display: flex; 
+    }
+}
+/* --- PERBAIKAN TOMBOL GARIS TIGA --- */
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #D4AF37 !important; /* Kita paksa jadi warna emas terang biar jelas */
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* --- PERBAIKAN WARNA TEKS NAVIGASI DI HP --- */
+@media (max-width: 768px) {
+    .nav-links a {
+        color: #F9F6F0 !important; /* Warna putih gading yang sangat kontras dan terang */
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    
+}
+/* ==========================================================
+   PERBAIKAN TOTAL MENU MOBILE (SLIDE DARI KANAN & TOMBOL X)
+   ================================================---------- */
+@media (max-width: 768px) {
+    /* Tombol Hamburger di atas segalanya */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 36px;
+        height: 26px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 99999 !important; /* Paling atas agar bisa diklik pas jadi X */
+        position: relative;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #D4AF37 !important;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Animasi garis jadi X */
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+    /* Panel Menu Samping Kanan */
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        left: auto !important;
+        width: 75% !important;
+        max-width: 280px !important;
+        height: 100vh !important;
+        background-color: rgba(26, 18, 11, 0.98) !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 80px 25px 30px 25px !important;
+        gap: 15px !important;
+        box-shadow: -15px 0 40px rgba(0, 0, 0, 0.9);
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1) !important;
+        display: flex !important;
+        z-index: 88888 !important; /* Di bawah tombol hamburger tapi di atas konten lain */
+    }
+
+    .nav-links.active {
+        right: 0 !important;
+    }
+}
+
+    /* Tautan Menu */
+    .nav-links a {
+        color: #F9F6F0 !important;
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: none;
+        width: 100%;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background: linear-gradient(90deg, rgba(212, 175, 55, 0.807), transparent);
+        color: #D4AF37 !important;
+        transform: translateX(8px);
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+    
+    .nav-links .btn-preorder-link {
+        background: linear-gradient(135deg, #D4AF37, #aa8c2c) !important;
+        color: #1a120b !important;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        margin-top: 10px;
+    }
+
+
+    .nav-links .btn-preorder-link:hover {
+        transform: scale(1.05) translateX(0) !important;
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.8); /* Cahaya emas lebih terang */
+    }
+
+/* Efek silang (X) saat tombol diklik */
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+/* --- PERBAIKAN AREA KLIK TOMBOL X --- */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;  /* Lebar area sentuh diperbesar */
+    height: 40px; /* Tinggi area sentuh diperbesar */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px 5px; /* Memberikan ruang aman di sekitar garis */
+    z-index: 100;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #D4AF37 !important;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+@media (max-width: 768px) {
+    /* Tombol Close (X) di dalam panel menu */
+    .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        color: #D4AF37;
+        font-size: 32px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+
+    /* Kalau menu aktif, munculkan overlay-nya */
+    body.menu-open::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links {
+        z-index: 8888 !important;
+    }
+}
+/* Styling Tombol Aksi Utama Sampingan & Compact */
+.hero-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.hero-button, 
+.hero-button-preorder {
+    flex: 1; /* Membagi lebar layar secara adil (50:50) */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap; /* Mencegah teks turun baris */
+    transition: all 0.3s ease;
+}
+
+/* Tombol Lihat Menu */
+.hero-button {
+    background: #4a3525; /* Menyesuaikan warna tema gelap */
+    color: #F9F6F0;
+}
+
+/* Tombol Pre-Order */
+.hero-button-preorder {
+    background: linear-gradient(135deg, #D4AF37, #aa8c2c);
+    color: #1a120b;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.hero-button-preorder:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+}
+/* Styling Tombol Aksi Utama Sampingan & Animasi Seragam */
+.hero-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.hero-button, 
+.hero-button-preorder {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efek saat tombol ditekan/disentuh (Animasi sama persis) */
+.hero-button:active, 
+.hero-button-preorder:active {
+    transform: scale(0.96);
+}
+
+/* Tombol Lihat Menu */
+.hero-button {
+    background: #4a3525;
+    color: #F9F6F0;
+}
+
+.hero-button:hover {
+    background: #3b291d;
+    transform: translateY(-2px);
+}
+
+/* Tombol Pre-Order dengan Gaya Emas & Animasi Senada */
+.hero-button-preorder {
+    background: linear-gradient(135deg, #D4AF37, #aa8c2c);
+    color: #1a120b;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.hero-button-preorder:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+}
+/* Tombol Pre-Order di dalam Menu Mobile */
+    .nav-links .btn-preorder-link {
+        background: linear-gradient(135deg, #D4AF37, #aa8c2c) !important;
+        color: #1a120b !important;
+        text-align: center;
+        box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+        margin-top: 10px;
+        transition: all 0.3s ease;
+    }
+
+    /* Efek Hover: Cahayanya dikurangi biar tulisan tetap terbaca jelas */
+    .nav-links .btn-preorder-link:hover {
+        background: linear-gradient(135deg, #ecc54d, #D4AF37) !important;
+        color: #1a120b !important;
+        transform: scale(1.02) translateX(0) !important;
+        box-shadow: 0 0 12px rgba(212, 175, 55, 0.5) !important; /* Ukuran cahaya dikecilkan */
+    }
+    /* ==========================================================
+   PENGATURAN DESKTOP (NORMAL & RAPI)
+   ========================================================== */
+
+/* Sembunyikan tombol garis tiga dan tombol X di Desktop */
+.menu-toggle, 
+.close-menu {
+    display: none !important;
+}
+
+/* Tombol Pre-Order di Navbar Desktop */
+.nav-links .btn-preorder-link {
+    background: linear-gradient(135deg, #D4AF37, #aa8c2c);
+    color: #1a120b !important;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-links .btn-preorder-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+/* Tombol Aksi Utama di Hero Section (Desktop: Ukuran Pas, Tidak Kepanjangan) */
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    justify-content: flex-start; /* Rata kiri di desktop */
+}
+
+.hero-button, 
+.hero-button-preorder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px; /* Ukuran proporsional, tidak terlalu panjang */
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    width: auto !important; /* Mencegah tombol melar selebar layar */
+    min-width: 160px;
+    transition: all 0.3s ease;
+}
+
+/* Tombol Lihat Menu Desktop */
+.hero-button {
+    background: #4a3525;
+    color: #F9F6F0;
+}
+
+.hero-button:hover {
+    background: #3b291d;
+    transform: translateY(-2px);
+}
+
+/* Tombol Pre-Order Desktop */
+.hero-button-preorder {
+    background: linear-gradient(135deg, #D4AF37, #aa8c2c);
+    color: #1a120b;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.hero-button-preorder:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+}
+
+
+/* ==========================================================
+   PENGATURAN KHUSUS HP (MOBILE)
+   ========================================================== */
+@media (max-width: 768px) {
+    /* Munculkan kembali hamburger menu di HP */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 36px;
+        height: 26px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 9999;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #D4AF37 !important;
+        border-radius: 3px;
+    }
+
+    .close-menu {
+        display: block !important;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        color: #D4AF37;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    /* Tombol hero di HP dibuat pas sejajar kanan-kiri */
+    .hero-actions {
+        width: 100%;
+        gap: 10px;
+    }
+    
+    .hero-button, 
+    .hero-button-preorder {
+        flex: 1;
+        min-width: unset;
+        padding: 10px 12px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+/* Pengaturan Lebar Tombol Hero Agar Tidak Kepanjangan */
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    justify-content: flex-start; /* Posisi di kiri */
+    flex-wrap: wrap;
+}
+
+.hero-button, 
+.hero-button-preorder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px; /* Padding dikecilkan biar lebih compact */
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    width: auto !important; /* Mencegah tombol melar full */
+    max-width: 180px; /* Batasi ukuran maksimal tombol */
+    transition: all 0.3s ease;
+}
+
+/* Penyesuaian khusus tampilan HP */
+@media (max-width: 768px) {
+    .hero-actions {
+        width: 100%;
+        gap: 10px;
+    }
+    
+    .hero-button, 
+    .hero-button-preorder {
+        flex: 1;
+        max-width: none; /* Biar pas di layar HP tapi tetap proporsional */
+        padding: 10px 15px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+}
+/* ==========================================================
+   PERBAIKAN TAMPILAN NAVIGASI DESKTOP (RAPI & COMPACT)
+   ========================================================== */
+
+/* Pastikan wadah nav-links di desktop tersusun horizontal rapat */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Jarak antar menu diperkecil biar tidak terlalu jauh */
+}
+
+/* Ukuran dan warna teks navigasi desktop */
+.nav-links a {
+    color: #2c1e14 !important;
+    font-size: 15px !important; /* Ukuran teks pas, tidak terlalu besar */
+    font-weight: 500;
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+
+
+
+/* Tombol Pre-Order di Navbar Desktop (Compact & Sejajar) */
+.nav-links .btn-preorder-link {
+    color: #1a120b !important;
+    font-size: 14px !important;
+    padding: 8px 16px !important; /* Ukuran pas, tidak bikin teksnya enter ke bawah */
+    border-radius: 20px !important;
+    font-weight: 600;
+    white-space: nowrap !important; /* Mencegah teks terpotong / enter ke bawah */
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================
+   PERBAIKAN TAMPILAN NAVIGASI DESKTOP (RAPI & COMPACT)
+   ========================================================== */
+
+/* Pastikan wadah nav-links di desktop tersusun horizontal rapat */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Jarak antar menu diperkecil biar tidak terlalu jauh */
+}
+
+/* Ukuran dan warna teks navigasi desktop */
+.nav-links a {
+    color: #2c1e14 !important;
+    font-size: 15px !important; /* Ukuran teks pas, tidak terlalu besar */
+    font-weight: 500;
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #D4AF37 !important;
+}
+
+/* Tombol Pre-Order di Navbar Desktop (Compact & Sejajar) */
+.nav-links .btn-preorder-link {
+    background: linear-gradient(135deg, #D4AF37, #aa8c2c) !important;
+    color: #1a120b !important;
+    font-size: 14px !important;
+    padding: 8px 16px !important; /* Ukuran pas, tidak bikin teksnya enter ke bawah */
+    border-radius: 20px !important;
+    font-weight: 600;
+    white-space: nowrap !important; /* Mencegah teks terpotong / enter ke bawah */
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-links .btn-preorder-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+/* ==========================================================
+   ANIMASI & INTERAKSI HALUS DI DESKTOP
+   ========================================================== */
+
+/* 1. Navigasi Menu Desktop */
+.nav-links a {
+    color: #a37414 !important;
+    font-size: 15px !important;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.2s ease;
+}
+
+/* Efek garis bawah mini atau geser naik halus saat kursor diarahkan ke menu */
+.nav-links a:hover {
+    color: #000000 !important;
+    transform: translateY(-1px);
+}
+
+/* 2. Tombol Pre-Order di Navbar Desktop */
+.nav-links .btn-preorder-link {
+    background: linear-gradient(135deg, #D4AF37, #aa8c2c) !important;
+    color: #1a120b !important;
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-weight: 600;
+    white-space: nowrap !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nav-links .btn-preorder-link:hover {
+    transform: translateY(-3px) scale(1.02); /* Sedikit naik dan membesar lembut */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    background: linear-gradient(135deg, #ecc54d, #D4AF37) !important;
+}
+
+.nav-links .btn-preorder-link:active {
+    transform: translateY(0) scale(0.98); /* Efek membal saat diklik */
+}
+
+/* 3. Tombol Aksi Utama di Hero Section (Desktop) */
+.hero-button, 
+.hero-button-preorder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    width: auto !important;
+    min-width: 160px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Animasi cair tidak kaku */
+}
+
+/* Tombol Lihat Menu Desktop */
+.hero-button {
+    background: #4a3525;
+    color: #F9F6F0;
+    box-shadow: 0 4px 15px rgba(74, 53, 37, 0.2);
+}
+
+.hero-button:hover {
+    background: #3b291d;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(74, 53, 37, 0.4);
+}
+
+.hero-button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* Tombol Pre-Order Hero Desktop */
+.hero-button-preorder {
+    background: linear-gradient(135deg, #D4AF37, #aa8c2c);
+    color: #1a120b;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.hero-button-preorder:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+}
+
+.hero-button-preorder:active {
+    transform: translateY(0) scale(0.97);
+}
