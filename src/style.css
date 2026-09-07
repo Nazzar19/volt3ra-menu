@@ -19,10 +19,11 @@ html{
     scroll-behavior:smooth;
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:var(--cream);
-    color:var(--text);
+/* Samakan font agar Vercel setajam dan serapi Netlify */
+body {
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    -webkit-font-smoothing: antialiased; /* Bikin pinggiran huruf jadi lebih tajam & halus */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ================= NAVBAR ================= */
