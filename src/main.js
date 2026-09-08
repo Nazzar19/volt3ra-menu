@@ -41,3 +41,36 @@ if (menuToggle && navLinks) {
         });
     });
 }
+/* ==========================================================
+   INTERSECTION OBSERVER UNTUK ANIMASI SCROLL
+   ========================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    // Pilih elemen apa saja yang mau dianimasikan saat di-scroll
+    // Contoh: bagian menu, kartu produk, teks judul, atau section lain
+    const elementsToReveal = document.querySelectorAll('.hero-content, .menu-section, .about-section, .contact-section, h2, p');
+
+    // Berikan kelas 'reveal' secara otomatis ke elemen-elemen tersebut
+    elementsToReveal.forEach(el => {
+        el.classList.add('reveal');
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Animasi mulai muncul saat elemen terlihat 15% di layar
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Opsional: Kalau mau animasinya cuma terjadi sekali per-refresh, uncomment baris bawah:
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        scrollObserver.observe(el);
+    });
+});

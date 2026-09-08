@@ -1253,15 +1253,39 @@ body {
 .hero-button-preorder:active {
     transform: translateY(0) scale(0.97);
 }
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+
+
+.hero {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
 }
 html,
 body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+}
+/* ==========================================================
+   ANIMASI SCROLL (FADE UP & REVEAL)
+   ========================================================== */
+
+/* Kondisi awal sebelum elemen masuk ke layar (disembunyikan & digeser ke bawah dikit) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* Kondisi saat elemen tersorot layar (muncul mulus) */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
