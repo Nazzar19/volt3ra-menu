@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Input Pesanan — VOLT3RA COFFEE</title>
+</head>
+<body class="bg-light">
+  <div class="container py-4" style="max-width: 480px;">
+    <h1 class="h4 mb-4">Input Pesanan</h1>
+
+    <div id="menu-list" class="d-flex flex-column"></div>
+
+    <div class="border-top border-dark mt-4 pt-3">
+      <div class="d-flex justify-content-between fs-5 mb-3">
+        <span>Total</span>
+        <strong id="total-value">Rp0</strong>
+      </div>
+      <button id="submit-btn" class="btn btn-dark w-100" disabled>Simpan Pesanan</button>
+      <div id="message" class="text-center mt-2 small"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/admin-input.js"></script>
+</body>
+</html>

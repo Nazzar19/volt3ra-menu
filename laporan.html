@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Penjualan — VOLT3RA COFFEE</title>
+</head>
+<body class="bg-light">
+  <div class="container py-4" style="max-width: 640px;">
+    <h1 class="h4 mb-4">Laporan Penjualan</h1>
+
+    <div class="btn-group w-100 mb-4" role="group" id="range-tabs">
+      <button class="btn btn-dark" data-range="day">Hari Ini</button>
+      <button class="btn btn-outline-dark" data-range="week">Minggu Ini</button>
+      <button class="btn btn-outline-dark" data-range="month">Bulan Ini</button>
+    </div>
+
+    <div id="loading" class="text-secondary">Memuat data...</div>
+
+    <div id="content" class="d-none">
+      <div class="row g-3 mb-4">
+        <div class="col-6">
+          <div class="bg-white rounded-3 p-3 border">
+            <div class="small text-secondary">Jumlah Pesanan</div>
+            <div class="fs-4 fw-bold" id="stat-orders">0</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="bg-white rounded-3 p-3 border">
+            <div class="small text-secondary">Total Omzet</div>
+            <div class="fs-4 fw-bold" id="stat-total">Rp0</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="h6 mb-3">Menu Terlaris</h2>
+      <div id="empty-msg" class="text-secondary small d-none">Belum ada pesanan di periode ini.</div>
+      <canvas id="best-seller-chart" height="220"></canvas>
+    </div>
+  </div>
+
+  <script type="module" src="/src/laporan.js"></script>
+</body>
+</html>
